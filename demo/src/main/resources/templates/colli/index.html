@@ -17,8 +17,7 @@
                 <td>Profondità</td>
                 <td>Peso</td>
                 <td>Bolla</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td colspan="3">Azioni</td>
             </tr>
             </thead>
             <tbody>
@@ -30,6 +29,7 @@
                 <td style="text-align: center" th:text="${collo.peso}"></td>
                 <td style="text-align: center" th:text="${collo.bolla}"></td>
                 <td><a th:href="@{'/colli/' + ${collo.getColliId}}">View</a></td>
+                <td><a th:href="@{'/colli/edit/' + ${collo.getColliId}}">Edit</a></td>
                 <td style="text-align: center">  <a th:href="@{'/colli/delete/' + ${collo.getColliId}}">Delete</a></td>
             </tr>
             </tbody>
