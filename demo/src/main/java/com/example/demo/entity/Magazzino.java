@@ -34,6 +34,9 @@ public class Magazzino {
     this.idMagazzino = idMagazzino;
   }
 
+  public Magazzino() {
+  }
+
   public Set<Magazzino> getIdMagazzino() {return this.idMagazzino;}
   public void setIdMagazzino(Set<Magazzino> idMagazzino) {this.idMagazzino = idMagazzino;}
 

@@ -12,9 +12,11 @@ import org.springframework.lang.NonNull;
  
 @Entity 
 @Table(name = "veicoli") 
-public class Veicolo{ 
+public class Veicolo{
+  public Veicolo() {
+  }
 
-  @Id 
+  @Id
   @GeneratedValue 
   private Long veicoloId; 
   @NonNull

@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>Lista colli</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+    <body>
+        <h1>Lista Colli</h1>
+        <p><a href="new">Crea collo</a></p>
+        <table>
+            <thead>
+            <tr>
+                <td>Id</td>
+                <td>Altezza</td>
+                <td>Larghezza</td>
+                <td>Profondità</td>
+                <td>Peso</td>
+                <td>Bolla</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="collo : ${colli}">
+                <td style="text-align: center" th:text="${collo.getColliId()}"></td>
+                <td style="text-align: center" th:text="${collo.altezza}"></td>
+                <td style="text-align: center" th:text="${collo.larghezza}"></td>
+                <td style="text-align: center" th:text="${collo.profondita}"></td>
+                <td style="text-align: center" th:text="${collo.peso}"></td>
+                <td style="text-align: center" th:text="${collo.bolla}"></td>
+                <td><a th:href="@{'/colli/' + ${collo.getColliId}}">View</a></td>
+                <td style="text-align: center">  <a th:href="@{'/colli/delete/' + ${collo.getColliId}}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

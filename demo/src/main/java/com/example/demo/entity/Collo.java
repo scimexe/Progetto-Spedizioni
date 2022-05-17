@@ -3,6 +3,8 @@ package com.example.demo.entity;
 import java.util.Set;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
  
@@ -12,16 +14,16 @@ public class Collo {
 
   @Id 
   @GeneratedValue 
-  private Long colloId; 
-  @NonNull
+  private Long colloId;
+  @NotNull(message = "inserire peso")
   private float peso;
-  @NonNull
+  @NotNull
   private float altezza;
-  @NonNull
+  @NotNull
   private float larghezza;
-  @NonNull
+  @NotNull
   private float profondita;
-  @NonNull
+  @NotNull
   private String bolla;
   @Nullable
   @ManyToOne
@@ -29,7 +31,7 @@ public class Collo {
   private Magazzino magazzinoId;
   @OneToMany(mappedBy = "colloId")
   private Set<Collo> idCollo;
-
+/*
   public Collo(Long colloId, float peso, float altezza, float larghezza, float profondita, String bolla, @Nullable Magazzino magazzinoId, Set<Collo> idCollo) {
     this.colloId = colloId;
     this.peso = peso;
@@ -39,6 +41,9 @@ public class Collo {
     this.bolla = bolla;
     this.magazzinoId = magazzinoId;
     this.idCollo = idCollo;
+  }
+*/
+  public Collo() {
   }
 
   public Set<Collo> getIdCollo() {return this.idCollo;}

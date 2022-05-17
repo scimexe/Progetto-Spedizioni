@@ -7,8 +7,10 @@ import org.springframework.lang.NonNull;
 @Entity 
 @Table(name = "spedizioni", indexes = @Index(columnList = "idCollo, inUscita"))
 public class Spedizione {
+  public Spedizione() {
+  }
 
-  @Id 
+  @Id
   @GeneratedValue 
   private Long spedizioneId;
   @NonNull
