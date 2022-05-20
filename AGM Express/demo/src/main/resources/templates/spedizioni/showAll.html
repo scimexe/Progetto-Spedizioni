@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Spedizioni - Homepage</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<p><a href="/">Homepage</a></p>
+     <table>
+            <thead>
+            <tr>
+                <td>Id spedizione</td>
+                <td>Tracking</td>
+                <td>Destinazione</td>
+                <td>Provenienza</td>
+                <td>Flag Spedizione/Ritiro</td>
+                <td>Nome destinatario</td>
+                <td>Cognome destinatario</td>
+                <td>Stato</td>
+                <td>Data di spedizione</td>
+                <td>Flag in uscita</td>
+                <td>Id veicolo</td>
+                <td>Id collo</td>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="spedizione : ${spedizioni}">
+                <td style="text-align: center" th:text="${spedizione.getSpedizioneId()}"></td>
+                <td style="text-align: center" th:text="${spedizione.codiceTracking}"></td>
+                <td style="text-align: center" th:text="${spedizione.destinazione}"></td>
+                <td style="text-align: center" th:text="${spedizione.provenienza}"></td>
+                <td style="text-align: center" th:text="${spedizione.spedizioneOrRitiro}"></td>
+                <td style="text-align: center" th:text="${spedizione.nomeDestinatario}"></td>
+                <td style="text-align: center" th:text="${spedizione.cognomeDestinatario}"></td>
+                <td style="text-align: center" th:text="${spedizione.stato}"></td>
+                <td style="text-align: center" th:text="${spedizione.dataSpedizione}"></td>
+                <td style="text-align: center" th:text="${spedizione.inUscita}"></td>
+                <td style="text-align: center" th:text="${spedizione.veicoloId}"></td>
+                <td style="text-align: center" th:text="${spedizione.colloId}"></td>
+
+
+            </tr>
+            </tbody>
+        </table>
+</body>
+</html>

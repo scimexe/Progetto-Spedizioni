@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Inserimento colli</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+	<h1>Inserimento Colli</h1>
+	<br>
+    <form action="#" th:action="@{/colli/new}" th:object="${collo}" method="POST">
+        <div class="form-group">
+            Altezza: <input type="text" th:field="*{altezza}"/>
+        <div class="alert alert-warning" th:if="${#fields.hasErrors('altezza')}" th:errors="*{altezza}"></div>
+
+            Larghezza: <input type="text" th:field="*{larghezza}" />
+        <div class="alert alert-warning" th:if="${#fields.hasErrors('larghezza')}" th:errors="*{larghezza}"></div>
+
+            Profondità : <input type="text" th:field="*{profondita}" />
+        <div class="alert alert-warning" th:if="${#fields.hasErrors('profondita')}" th:errors="*{profondita}"></div>
+
+            Peso: <input type="text" th:field="*{peso}" />
+        <div class="alert alert-warning" th:if="${#fields.hasErrors('peso')}" th:errors="*{peso}"></div>
+
+            Bolla: <input type="text" th:field="*{bolla}" />
+        <div class="alert alert-warning" th:if="${#fields.hasErrors('bolla')}" th:errors="*{bolla}"></div>
+
+            <input type="submit"  class="btn btn-success" value="Inserisci collo">
+            <input type="reset" class="btn btn-success" value="Reset" />
+            <br><br>
+             <a href="/colli/">Visualizza lista colli</a>
+        </div>
+    </form>
+</body>
+</html>

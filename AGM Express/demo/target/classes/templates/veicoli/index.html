@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista Veicoli </title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Lista Veicoli</h1>
+    <p><a href="/">Homepage</a></p>
+     <table>
+                <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Marca</td>
+                    <td>Modello</td>
+                    <td>Colli da consegnare</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="veicolo : ${veicoli}">
+                    <td style="text-align: center" th:text="${veicolo.getVeicoloId()}"></td>
+                    <td style="text-align: center" th:text="${veicolo.marca}"></td>
+                    <td style="text-align: center" th:text="${veicolo.modello}"></td>
+                    <td style="text-align: center" th:text="${veicolo.colliDaConsegnare}"></td>
+                </tr>
+                </tbody>
+            </table>
+</body>
+</html>
