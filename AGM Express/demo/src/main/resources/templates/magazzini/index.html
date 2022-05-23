@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Lista Veicoli </title>
+  <title>Lista Magazzini </title>
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
     <h1>Lista Magazzini</h1>
+    <p><a href="magazzini/new">Crea magazzino</a></p>
     <p><a href="/">Homepage</a></p>
      <table>
                 <thead>
@@ -15,6 +16,7 @@
                     <td>Indirizzo</td>
                     <td>Nome</td>
                     <td>Numero colli</td>
+                    <td colspan="3">Azioni</td>
                 </tr>
                 </thead>
                 <tbody>
@@ -23,6 +25,9 @@
                     <td style="text-align: center" th:text="${magazzino.indirizzo}"></td>
                     <td style="text-align: center" th:text="${magazzino.nome}"></td>
                     <td style="text-align: center" th:text="${magazzino.nColli}"></td>
+                    <td><a th:href="@{'/magazzini/' + ${magazzino.getMagazzinoId}}">View</a></td>
+                    <td><a th:href="@{'/magazzini/edit/' + ${magazzino.getMagazzinoId}}">Edit</a></td>
+                    <td style="text-align: center">  <a th:href="@{'/magazzini/delete/' + ${magazzino.getMagazzinoId}}">Delete</a></td>
                 </tr>
                 </tbody>
             </table>

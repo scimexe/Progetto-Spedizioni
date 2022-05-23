@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Inserimento colli</title>
+    <link href="/style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+	<h1>Inserimento Colli</h1>
+	<br>
+    <form action="#" th:action="@{/magazzini/new}" th:object="${magazzino}" method="POST">
+        <div class="form-group">
+            Indirizzo: <input type="text" th:field="*{indirizzo}"/>
+        <div class="alert alert-warning" th:if="${#fields.hasErrors('indirizzo')}" th:errors="*{indirizzo}"></div>
+        <br>
+            Nome: <input type="text" th:field="*{nome}" />
+        <div class="alert alert-warning" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
+        <br>
+            Numero di Colli: <input type="text" th:field="*{nColli}" />
+        <div class="alert alert-warning" th:if="${#fields.hasErrors('nColli')}" th:errors="*{nColli}"></div>
+        <br>
+            <input type="submit"  class="btn btn-success" value="Inserisci magazzino">
+            <input type="reset" class="btn btn-success" value="Reset" />
+            <br><br>
+             <a href="/magazzini/">Visualizza lista magazzini</a>
+        </div>
+    </form>
+</body>
+</html>
