@@ -2,6 +2,7 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <title>Inserimento colli</title>
+    <link href="/style.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 <body>
@@ -16,19 +17,25 @@
         <div class="form-group">
             Altezza: <input type="text" th:field="*{altezza}"/>
         <div class="alert alert-warning" th:if="${#fields.hasErrors('altezza')}" th:errors="*{altezza}"></div>
-
+        <br>
             Larghezza: <input type="text" th:field="*{larghezza}" />
         <div class="alert alert-warning" th:if="${#fields.hasErrors('larghezza')}" th:errors="*{larghezza}"></div>
-
+        <br>
             Profondità : <input type="text" th:field="*{profondita}" />
         <div class="alert alert-warning" th:if="${#fields.hasErrors('profondita')}" th:errors="*{profondita}"></div>
-
+        <br>
             Peso: <input type="text" th:field="*{peso}" />
         <div class="alert alert-warning" th:if="${#fields.hasErrors('peso')}" th:errors="*{peso}"></div>
-
+        <br>
             Bolla: <input type="text" th:field="*{bolla}" />
         <div class="alert alert-warning" th:if="${#fields.hasErrors('bolla')}" th:errors="*{bolla}"></div>
-
+        <br>
+        <div class="form-group blu-margin">
+            <select class="form-control" th:field="*{magazzinoId}">
+                <option value="">Scegliere...</option>
+                <option th:each="magazzino: ${magazzino}" th:value="${magazzino.getMagazzinoId}" th:text="${magazzino.nome}"/>
+            </select>
+        </div>
             <input type="submit"  class="btn btn-success" value="Inserisci collo">
             <input type="reset" class="btn btn-success" value="Reset" />
             <br><br>

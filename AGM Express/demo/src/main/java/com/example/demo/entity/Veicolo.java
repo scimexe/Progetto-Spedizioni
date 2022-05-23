@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import org.springframework.lang.NonNull;
  
@@ -22,8 +23,10 @@ public class Veicolo{
   @NonNull
   private int colliDaConsegnare;
   @NonNull 
+  @NotBlank(message = "marca necessaria")
   private String marca;
   @NonNull
+  @NotBlank(message = "modello necessario")
   private String modello; 
   @OneToMany(mappedBy = "veicoloId")
   private Set<Veicolo> idVeicolo;

@@ -2,6 +2,8 @@ package com.example.demo.entity;
 
 import java.sql.Date;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+
 import org.springframework.lang.NonNull;
  
 @Entity 
@@ -33,9 +35,11 @@ public class Spedizione {
   private boolean inUscita;
   @NonNull
   @ManyToOne
+  @NotBlank(message = "la spedizione non può non avere un veicolo")
   @JoinColumn(name = "idVeicolo")
   private Veicolo veicoloId;
   @NonNull
+  @NotBlank(message = "la spedizione non può non consegnare un pacco")
   @ManyToOne
   @JoinColumn(name = "idCollo")
   private Collo colloId;

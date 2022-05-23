@@ -56,28 +56,30 @@
                 <br>
 
                 <label>Veicolo: </label>
-                <select th:field="*{veicoloId}" default="1">
-                    <option value= 1>Fiat Fiorino</option>
-                    <option value= 2>Fiat Ducato</option>
-                    <option value= 3>Citroen Jumper</option>
-                    <option value= 4>Peugeot Expert</option>
-                  </select>
+                <select class="form-control" th:field="*{veicoloId}">
+                    <option value="">Scegliere un veicolo</option>
+                    <option th:each="veicolo: ${veicolo}" th:value="${veicolo.getVeicoloId}" th:text="${veicolo.marca} + ' ' + ${veicolo.modello}"/>
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('veicoloId')}" th:errors="*{veicoloId}"></div>
+                </select>
+                <br>
+
+                <label>Collo: </label>
+                <select class="form-control" th:field="*{colloId}">
+                    <option value="">Scegliere un collo</option>
+                    <option th:each="collo: ${collo}" th:value="${collo.getColliId}" th:text="${collo.getColliId} + ' ' + ${collo.bolla}"/>
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('colloId')}" th:errors="*{colloId}"></div>
+                </select>
                 <br>
 
                 <label>Flag Spedizione/Ritiro (Spuntato se Ritiro): </label>
-                    <input type="checkbox" th:field="*{colloId}"/>
-                    <div class="alert alert-warning" th:if="${#fields.hasErrors('spedizioneOrRitiro')}" th:errors="*{spedizioneOrRitiro}"></div>
-                    <br>
-
-                <label>Ingresso/Uscita</label>
-                <input type="checkbox" th:field="*{inUscita}"/><br>
-                <div class="alert alert-warning" th:if="${#fields.hasErrors('inUscita')}" th:errors="*{inUscita}">
-                </div>
-
-                <label>Flag Spedizione/Ritiro (Spuntato se Ritiro): </label>
-                <input type="checkbox" th:field="*{spedizioneOrRitiro}"/>
+                <input type="checkbox" th:field="*{spedizioneOrRitiro}" value=""/>
                 <div class="alert alert-warning" th:if="${#fields.hasErrors('spedizioneOrRitiro')}" th:errors="*{spedizioneOrRitiro}"></div>
                 <br>
+
+                <label>Ingresso/Uscita</label>
+                <input type="checkbox" th:field="*{inUscita}" value=""/><br>
+                <div class="alert alert-warning" th:if="${#fields.hasErrors('inUscita')}" th:errors="*{inUscita}">
+                </div>
 
 
 
@@ -87,7 +89,7 @@
             <input type="reset" class="btn btn-success" value="Reset" />
             <br><br>
             <label class="hidden">This is hidden label</label>
-             <a href="../spedizioni/view">Visualizza lista spedizioni</a>
+             <a href="/spedizioni/">Visualizza lista spedizioni</a>
         </div>
     </form>
 </body>

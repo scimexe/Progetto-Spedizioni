@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 import com.example.demo.entity.Collo;
+import com.example.demo.entity.Magazzino;
 import com.example.demo.repository.ColloRepository;
+import com.example.demo.repository.MagazzinoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,12 +18,18 @@ import java.util.Optional;
 @RequestMapping("/colli")
 public class ColloController {
     private Long IdGlobale;
+
     @Autowired
     ColloRepository colloRepository;
 
+    @Autowired
+    MagazzinoRepository magazzinoRepository;
+    
     @GetMapping("/new")
-    public String inserimentoForm(Model model){
+    public String inserimentoForm(Model model, @ModelAttribute("magazzini") Magazzino magazzino){
         Collo collo = new Collo();
+        List<Magazzino> magazzini = (List<Magazzino>) magazzinoRepository.findAll();
+        model.addAttribute("magazzino", magazzini);
         model.addAttribute("collo", collo);
         return "colli/inserimento-colli";
     }

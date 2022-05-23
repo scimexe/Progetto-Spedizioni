@@ -1,9 +1,49 @@
-<html>
-    <head>
-        <title>Spedizioni - Homepage</title>
-    </head>
-    <body>
-        <a href="../spedizioni/view">Visualizza spedizioni</a>
-        <a href="../spedizioni/new">Crea spedizione</a>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista spedizioni</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <a href="../spedizioni/new">Crea spedizione</a> 
+    <p><a href="/">Homepage</a></p>
+     <table>
+            <thead>
+            <tr>
+                <td>Id spedizione</td>
+                <td>Tracking</td>
+                <td>Destinazione</td>
+                <td>Provenienza</td>
+                <td>Flag Spedizione/Ritiro</td>
+                <td>Nome destinatario</td>
+                <td>Cognome destinatario</td>
+                <td>Stato</td>
+                <td>Data di spedizione</td>
+                <td>Flag in uscita</td>
+                <td>veicolo</td>
+                <td>collo</td>
+                <td colspan="3">Azioni</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="spedizione : ${spedizioni}">
+                <td style="text-align: center" th:text="${spedizione.getSpedizioneId()}"></td>
+                <td style="text-align: center" th:text="${spedizione.codiceTracking}"></td>
+                <td style="text-align: center" th:text="${spedizione.destinazione}"></td>
+                <td style="text-align: center" th:text="${spedizione.provenienza}"></td>
+                <td style="text-align: center" th:text="${spedizione.spedizioneOrRitiro}"></td>
+                <td style="text-align: center" th:text="${spedizione.nomeDestinatario}"></td>
+                <td style="text-align: center" th:text="${spedizione.cognomeDestinatario}"></td>
+                <td style="text-align: center" th:text="${spedizione.stato}"></td>
+                <td style="text-align: center" th:text="${spedizione.dataSpedizione}"></td>
+                <td style="text-align: center" th:text="${spedizione.inUscita}"></td>
+                <td style="text-align: center" th:text="${spedizione.veicoloId != null}?${spedizione.veicoloId.getVeicoloId} + ' ' + ${spedizione.veicoloId.marca} + ' ' + ${spedizione.veicoloId.modello}:'Non ancora spedito'"></td>
+                <td style="text-align: center" th:text="${spedizione.colloId != null}?${spedizione.colloId.getColliId} + ' ' + ${spedizione.colloId.bolla}:'Nessun pacco'"></td>
+                <td><a th:href="@{'/spedizioni/' + ${spedizione.getSpedizioneId}}">View</a></td>
+                <td style="text-align: center">  <a th:href="@{'/spedizioni/delete/' + ${spedizione.getSpedizioneId}}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+</body>
 </html>

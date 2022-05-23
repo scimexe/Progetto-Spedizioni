@@ -1,6 +1,6 @@
 <html>
-
 <head>
+    <meta charset="UTF-8">
     <title>Lista colli</title>
     <link rel="stylesheet" href="/style.css">
 </head>
@@ -15,9 +15,10 @@
                 <td>Id</td>
                 <td>Altezza</td>
                 <td>Larghezza</td>
-                <td>ProfonditÃ </td>
+                <td>Profondità </td>
                 <td>Peso</td>
                 <td>Bolla</td>
+                <td>Magazzino</td>
                 <td colspan="3">Azioni</td>
             </tr>
             </thead>
@@ -29,6 +30,7 @@
                 <td style="text-align: center" th:text="${collo.profondita}"></td>
                 <td style="text-align: center" th:text="${collo.peso}"></td>
                 <td style="text-align: center" th:text="${collo.bolla}"></td>
+                <td style="text-align: center" th:text="${collo.magazzinoId != null}?${collo.magazzinoId.nome}:'Non in giacenza'"></td>
                 <td><a th:href="@{'/colli/' + ${collo.getColliId}}">View</a></td>
                 <td><a th:href="@{'/colli/edit/' + ${collo.getColliId}}">Edit</a></td>
                 <td style="text-align: center">  <a th:href="@{'/colli/delete/' + ${collo.getColliId}}">Delete</a></td>

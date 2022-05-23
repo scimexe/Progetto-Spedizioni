@@ -7,6 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.lang.NonNull;
  
@@ -16,12 +19,15 @@ public class Magazzino {
 
   @Id 
   @GeneratedValue 
-  private Long magazzinoId; 
-  @NonNull
+  public Long magazzinoId;
+  @NotNull(message = "l'indirizzo non può essere nullo")
+  @NotBlank(message = "l'indirizzo non può essere nullo")
   private String indirizzo;
-  @NonNull
+  @NotNull(message = "il nome non può essere nullo")
+  @NotBlank(message = "il nome non può essere nullo")
   private String nome;
-  @NonNull
+  @NotNull(message = "Il numero di colli in giacenza non può essere nullo")
+  @Min(value = 0, message = "Almeno 0 colli")
   private int nColli;
   @OneToMany(mappedBy = "magazzinoId")
   private Set<Magazzino> idMagazzino;

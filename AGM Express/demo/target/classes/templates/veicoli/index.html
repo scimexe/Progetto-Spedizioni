@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1>Lista Veicoli</h1>
+    <p><a href="/new">Crea veicolo</a></p>
     <p><a href="/">Homepage</a></p>
      <table>
                 <thead>
@@ -15,6 +16,7 @@
                     <td>Marca</td>
                     <td>Modello</td>
                     <td>Colli da consegnare</td>
+                    <td colspan="3">Azioni</td>
                 </tr>
                 </thead>
                 <tbody>
@@ -23,6 +25,9 @@
                     <td style="text-align: center" th:text="${veicolo.marca}"></td>
                     <td style="text-align: center" th:text="${veicolo.modello}"></td>
                     <td style="text-align: center" th:text="${veicolo.colliDaConsegnare}"></td>
+                    <td><a th:href="@{'/veicoli/' + ${veicolo.getVeicoloId}}">View</a></td>
+                <td><a th:href="@{'/veicoli/edit/' + ${veicolo.getVeicoloId}}">Edit</a></td>
+                <td style="text-align: center">  <a th:href="@{'/veicoli/delete/' + ${veicolo.getVeicoloId}}">Delete</a></td>
                 </tr>
                 </tbody>
             </table>
